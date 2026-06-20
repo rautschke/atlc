@@ -15,6 +15,13 @@ using version of atlc prior to 4.6.0 for multiple dielectrics.
 See the file INSTALL if building from sources. Online documentation may
 be found at http://atlc.sourceforge.net/
 
+If you are building from a git checkout (rather than an atlc-version.tar.gz
+release tarball), the Autotools build system is not included in git. Run
+'./autogen.sh' once to generate it (this needs autoconf, automake and the
+m4 macros under m4/), then proceed with './configure' as described in
+INSTALL. Release tarballs made with 'make dist' already include the
+generated 'configure' script, so tarball users do not need autotools.
+
 This is the directory layout. .
 ./m4                     // Some autoconf macros
 ./docs                   // Various bits of documentation. 

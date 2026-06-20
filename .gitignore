@@ -1,0 +1,72 @@
+# --- Autotools generated build system ---
+# Regenerate with ./autogen.sh (autoreconf -i)
+/configure
+/aclocal.m4
+/config.h.in
+/config.h
+/config.log
+/config.status
+/stamp-h1
+/autom4te.cache/
+Makefile
+Makefile.in
+
+# Autotools helper scripts (restored by `autoreconf -i --add-missing`)
+/config.guess
+/config.sub
+/compile
+/depcomp
+/install-sh
+/missing
+/mkinstalldirs
+/ar-lib
+/test-driver
+/ylwrap
+
+# --- Compilation output ---
+*.o
+*.a
+*.lo
+*.la
+*.so
+.deps/
+.libs/
+
+# --- Compiled programs: src/ (bin_PROGRAMS) ---
+/src/atlc
+/src/create_any_bitmap
+/src/create_bmp_for_circ_in_circ
+/src/create_bmp_for_circ_in_rect
+/src/create_bmp_for_microstrip_coupler
+/src/create_bmp_for_rect_cen_in_rect
+/src/create_bmp_for_rect_cen_in_rect_coupler
+/src/create_bmp_for_rect_in_circ
+/src/create_bmp_for_rect_in_rect
+/src/create_bmp_for_stripline_coupler
+/src/create_bmp_for_symmetrical_stripline
+/src/design_coupler
+/src/find_optimal_dimensions_for_microstrip_coupler
+/src/readbin
+
+# --- Compiled programs: tools/src/ (bin_PROGRAMS) ---
+/tools/src/coax
+/tools/src/dualcoax
+/tools/src/locatediff
+/tools/src/myfilelength
+/tools/src/mymd5sum
+
+# --- Compiled programs + output: tests/ (check_PROGRAMS) ---
+/tests/Test_threads_a
+/tests/Test_threads_b
+/tests/benchmark
+/tests/sysdata
+/tests/tests.html
+/tests/tests.log
+
+# Automake test-harness output (per-test logs + results)
+/tests/*.log
+/tests/*.trs
+/tests/test-suite.log
+
+# Test scratch output directory (README: "Used during tests to dump data")
+/tmp/

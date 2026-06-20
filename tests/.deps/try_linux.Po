@@ -1,3 +1,0 @@
-try_linux.o: try_linux.c ../config.h defs.h
-../config.h:
-defs.h:

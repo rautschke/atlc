@@ -1,3 +1,0 @@
-atlc-finite_difference_multi_threaded.o: \
-  finite_difference_multi_threaded.c ../config.h
-../config.h:
