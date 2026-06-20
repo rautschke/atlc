@@ -51,6 +51,10 @@ Dr. David Kirkby, e-mail drkirkby@gmail.com
 #include <pthread.h>
 #endif
 
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+
 #ifdef ENABLE_MPI
 #include <mpi.h>
 #endif
@@ -73,7 +77,7 @@ unsigned char **cell_type;
 unsigned char *image_data;
 int width=-1, height=-1;
 extern int errno;
-int number_of_workers=MAX_THREADS; 
+int number_of_workers=-1; /* -1=unset (OpenMP uses all cores); 0=single-threaded; >0=pinned */
 int non_vacuum_found=FALSE;
 int dielectrics_to_consider_just_now;
 int coupler=FALSE;
@@ -156,7 +160,7 @@ int main(int argc, char **argv) /* Read parameters from command line */
 	 fprintf(stderr,"If you really do want this many, you will need to recompile\n");    
          exit_with_msg_and_exit_code("",USER_REQUESTED_TOO_MANY_THREADS);
       }
-#ifndef ENABLE_POSIX_THREADS
+#if !defined(ENABLE_POSIX_THREADS) && !defined(_OPENMP)
       if(number_of_workers != 0)
          exit_with_msg_and_exit_code("Error #1. The -t option can not be \
 used, (except to  set t=0, which is an \nexception made to allow a \
@@ -180,6 +184,14 @@ hence built without the mpi\nlibrary.\n",1);
     case '?':
       usage_atlc();
   } /* End of the switch statement */
+
+#ifdef _OPENMP
+  /* Honour an explicit -t N (N>0); otherwise leave OpenMP at its default (all
+     cores, or $OMP_NUM_THREADS). -t 0 selects the single-threaded algorithm,
+     which is handled in finite_difference(). */
+  if (number_of_workers > 0)
+    omp_set_num_threads(number_of_workers);
+#endif
 
   /* There should only be one argument to atlc, the bitmapfile name.
   There can be a few options though. We now check that there is only

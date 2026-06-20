@@ -307,6 +307,8 @@ void free_ustring(unsigned char *v, long nl, long nh);
 void setup_arrays(struct transmission_line_properties *data);
 double finite_difference_single_threaded();
 double finite_difference_multi_threaded();
+double finite_difference_openmp();
+double finite_difference();
 void *do_columns(void *thread_arg);
 void usage_atlc(void);
 void write_fields_for_two_conductor_lines(char *filename, struct transmission_line_properties data, size_t size);

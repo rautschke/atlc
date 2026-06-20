@@ -14,8 +14,9 @@ check_for_boundaries.c \
 memory.c setup_arrays.c \
 finite_difference_single_threaded.c \
 finite_difference_multi_threaded.c \
+finite_difference_openmp.c \
 usage_atlc.c \
-check_for_shorts.c bmp.h definitions.h Erdata.h \
+check_for_shorts.c bmp.h definitions.h Erdata.h relax_node.h \
 find_energy_per_metre.c \
 set_oddity_from_Greens_paper.c \
 get_file_pointer_with_right_filename.c \
@@ -30,7 +31,9 @@ write_fields_for_directional_couplers.c \
 exit_codes.h definitions.h
 
 atlc_CPPFLAGS = -DNEED_MPI_CODE @PTHREAD_CFLAGS@
-atlc_LDADD = @PTHREAD_LIBS@ @LIBS@ 
+atlc_CFLAGS = $(AM_CFLAGS) @OPENMP_CFLAGS@
+atlc_LDFLAGS = @OPENMP_CFLAGS@
+atlc_LDADD = @PTHREAD_LIBS@ @LIBS@
 
 
 create_bmp_for_rect_in_rect_SOURCES = create_bmp_for_rect_in_rect.c \

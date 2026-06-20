@@ -111,6 +111,14 @@ if test "x$with_threads" = "xyes"; then
   AC_CHECK_FUNC([pthread_setconcurrency],AC_DEFINE([HAVE_PTHREAD_SETCONCURRENCY],[1],[has the pthread_setconcunacy call, needeed on Solaris]))
   AC_SUBST(built_with_posix_threads,yes)
 fi
+
+# OpenMP support for the multi-core (red-black SOR) finite-difference solver.
+# Enabled by default; AC_OPENMP sets OPENMP_CFLAGS to the right flag (-fopenmp
+# on gcc/clang) and leaves it empty if the compiler has no OpenMP, in which
+# case atlc falls back to the single-threaded solver.
+AC_OPENMP
+AC_SUBST(OPENMP_CFLAGS)
+
 AC_CHECK_DECL(_SC_PHYS_PAGES,,)
 AC_CHECK_DECL(_SC_PAGESIZE,,)
 AC_CHECK_DECL(_SC_CRAY_NCPU,,)
