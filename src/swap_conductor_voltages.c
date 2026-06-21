@@ -36,7 +36,7 @@ CONDUCTOR_MINUS_ONE_V in definitions.h */
 #include "definitions.h"
 
 extern int width, height;
-unsigned char **oddity;
+extern unsigned char **oddity;
 extern double **Vij;
 
 /* This swaps any conductor orignally at -1 V to +1 V. Any
