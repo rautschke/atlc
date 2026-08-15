@@ -1,0 +1,40 @@
+# Autotools build products (regenerate with ./configure && make)
+Makefile
+config.h
+config.log
+config.status
+stamp-h1
+.deps/
+*.o
+*.a
+*.lo
+.libs/
+
+# make check output
+/tests/tests.log
+/tests/tests.html
+
+# compiled programs (built from the .c files in the same directory)
+/src/atlc
+/src/create_any_bitmap
+/src/create_bmp_for_circ_in_circ
+/src/create_bmp_for_circ_in_rect
+/src/create_bmp_for_microstrip_coupler
+/src/create_bmp_for_rect_cen_in_rect
+/src/create_bmp_for_rect_cen_in_rect_coupler
+/src/create_bmp_for_rect_in_circ
+/src/create_bmp_for_rect_in_rect
+/src/create_bmp_for_stripline_coupler
+/src/create_bmp_for_symmetrical_stripline
+/src/design_coupler
+/src/find_optimal_dimensions_for_microstrip_coupler
+/src/readbin
+/tests/Test_threads_a
+/tests/Test_threads_b
+/tests/benchmark
+/tests/sysdata
+/tools/src/coax
+/tools/src/dualcoax
+/tools/src/locatediff
+/tools/src/myfilelength
+/tools/src/mymd5sum
